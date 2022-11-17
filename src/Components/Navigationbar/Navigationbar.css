@@ -1,0 +1,23 @@
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital@1&display=swap');
+
+.navbar-item{
+    text-decoration: none;
+    font-family: 'Overlock', cursive;
+    color: black;
+}
+.navbar-title{
+    font-family: 'Kaushan Script', cursive;
+    color: darkcyan;
+}    
+.navbar-item:hover{
+    border-bottom: 3px solid darkcyan;
+    padding: 0px 9px;
+    color: black;
+}    
+.active{
+    background-color:darkcyan;
+    padding: 0px 9px;
+    color: aliceblue;
+}
