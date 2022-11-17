@@ -13,7 +13,7 @@ const Banner = () => {
                 <header className='m-5 '>
                     <h1 className='fs-1'>Travel <span className='text-success'>More!</span></h1>
                     <h3>Add Stop overs , Pay less & Discover the World </h3>
-                    <p>Find the right destination for you. Choose from many exiting places. Engage with tourists from diffrent places. Start exploring today. Over 10+ exiting destinations..</p>
+                    <p>Explore the destination according to your dream. Choose many amazing places around the world. Start exploring today.</p>
                     <Link to='/destinations'><Button>Let's Explore the World</Button></Link>
                 </header>
             
