@@ -1,0 +1,12 @@
+.title{
+    background-color: darkcyan;
+    color:white;
+}
+.service-items{
+    border:none;
+}
+
+.service-items:hover{
+    border: 2px solid black;
+    border-radius: 9px;
+}
