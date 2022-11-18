@@ -7,6 +7,15 @@ import google from "../../assets/custom icons/google.png";
 import './Register.css';
 
 const Register = () => {
+
+    const handleRegister = (e) =>{
+        e.preventDefault();
+    }
+
+
+
+
+
   return (
     <div className="d-flex flex-lg-row flex-column justify-content-center align-items-center container">
       <div className="w-100 w-lg-50">
@@ -18,7 +27,7 @@ const Register = () => {
         <div>
             <h1 className="text-center">Create A New Account</h1>
         </div>
-        <Form className="mt-4 form-style">
+        <Form onSubmit={handleRegister} className="mt-4 form-style">
           <Form.Group className="mb-3" controlId="">
             <Form.Label className="fw-semibold fs-3">
               Enter Your Name
@@ -71,9 +80,8 @@ const Register = () => {
             </span>
           </p>
 
-          <Button type="submit" className="w-100 button-color">
-            SIGN UP
-          </Button>
+          <input type="submit" className="btn text-light w-100 button-color" value="Sign Up">
+          </input>
 
           <div className="my-4 text-center">
             <p className="fw-semibold">----Signup with social Accounts----</p>

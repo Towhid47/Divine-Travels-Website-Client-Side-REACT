@@ -7,6 +7,15 @@ import google from "../../assets/custom icons/google.png";
 import "./Login.css";
 
 const Login = () => {
+
+    const handleSignIn = (e) =>{
+        e.preventDefault();
+    }
+
+
+
+
+
   return (
     <div>
       <div className="d-flex flex-lg-row flex-column justify-content-center align-items-center container">
@@ -19,7 +28,7 @@ const Login = () => {
           <div>
             <h1 className="text-center">Log In</h1>
           </div>
-          <Form className="mt-4 form-style">
+          <Form onSubmit={handleSignIn} className="mt-4 form-style">
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label className="fw-semibold fs-3">
@@ -51,9 +60,8 @@ const Login = () => {
               </span>
             </p>
 
-            <Button type="submit" className="w-100 button-color">
-              SIGN IN
-            </Button>
+            <input type="submit" className="w-100 btn text-light button-color" value="Sign In">
+            </input>
 
             <div className="my-4 text-center">
               <p className="fw-semibold">----Signin with social Accounts----</p>
