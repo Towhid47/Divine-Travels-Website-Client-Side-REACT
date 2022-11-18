@@ -14,8 +14,11 @@ const Register = () => {
       </div>
 
       {/* //////////////////////////Registration Form/////////////////// */}
-      <div className="w-100 w-lg-50 form-text">
-        <Form className="mt-4">
+      <div className="w-100 w-lg-50">
+        <div>
+            <h1 className="text-center">Create A New Account</h1>
+        </div>
+        <Form className="mt-4 form-style">
           <Form.Group className="mb-3" controlId="">
             <Form.Label className="fw-semibold fs-3">
               Enter Your Name
@@ -74,7 +77,7 @@ const Register = () => {
 
           <div className="my-4 text-center">
             <p className="fw-semibold">----Signup with social Accounts----</p>
-            <Button className="btn btn-dark" title="Signup with Google">
+            <Button className="btn btn-light" title="Signup with Google">
               <img src={google} className="" alt="" />
             </Button>{" "}
             {"  "}
