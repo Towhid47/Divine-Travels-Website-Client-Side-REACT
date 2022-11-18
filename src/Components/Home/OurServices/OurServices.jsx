@@ -63,7 +63,7 @@ const OurServices = () => {
                  <h1 className=''>What We Offer ?</h1>
               </div>
 
-              <div className='mt-2 services container'>
+              <div className='mt-4 services container'>
                     <div className='p-2'>
                             <img src={flight} className="w-25" alt=""></img>
                             <h3 className='service-name mt-2'>Chartered Flight</h3>

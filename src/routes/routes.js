@@ -7,6 +7,8 @@ import Home from "../Components/Home/Home";
 import Services from "../Components/Services/Services";
 import Main from "../layouts/Main/Main";
 import { Button } from "react-bootstrap";
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -26,13 +28,19 @@ export const router = createBrowserRouter([
             {
                 path:'/blog' , element: <Blog></Blog>
             },
+            {
+                path:'/login' , element:<Login></Login>
+            },
+            {
+                path:'/register', element:<Register></Register>
+            }
         ]
     },
     {
         path:'/*',
         element:<>
                 <div className="d-flex justify-content-center"> <Lottie className="w-75" animationData={error}></Lottie></div>
-                <div className="text-center mt-2"><Link to='/'><Button>Go Back To Homepage</Button></Link></div>
+                <div className="text-center mt-2"><Link to='/'><Button className="button-color">Go Back To Homepage</Button></Link></div>
                 </>
     }
 ])

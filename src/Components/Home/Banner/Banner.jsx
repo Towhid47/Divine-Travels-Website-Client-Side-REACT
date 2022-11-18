@@ -14,7 +14,7 @@ const Banner = () => {
                     <h1 className='fs-1'>Travel <span className='text-success'>More!</span></h1>
                     <h3>Add Stop overs , Pay less & Discover the World </h3>
                     <p>Explore the destination according to your dream. Choose many amazing places around the world. Start exploring today.</p>
-                    <Link to='/destinations'><Button>Let's Explore the World</Button></Link>
+                    <Link to='/destinations'><Button className='button-color'>Let's Explore the World</Button></Link>
                 </header>
             
             {/* this div section is for Animation */}
