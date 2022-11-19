@@ -7,6 +7,7 @@ import google from "../../assets/custom icons/google.png";
 import './Register.css';
 import { AuthContext } from "../../Context/auth.context";
 import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
@@ -42,8 +43,13 @@ const Register = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn(googleProvider)
         .then(result => {
-            const user = result.user;
-            console.log(user);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Google Sign In Complete',
+              showConfirmButton: false,
+              timer: 1500
+            })
        })
        .catch(error => error.message);
     }

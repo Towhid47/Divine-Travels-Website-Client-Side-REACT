@@ -8,12 +8,23 @@ import logo from '../../assets/Logo/logo.png'
 import { AuthContext } from '../../Context/auth.context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 
 const Navigationbar = () => {
 
-    const {user} = useContext(AuthContext);
+    const {user, log_out } = useContext(AuthContext);
     console.log(user);
+
+
+    //////// Handle Log Out //////////
+    const handleLogOut = () =>{
+        log_out()
+        .then(()=>{
+            Swal.fire("Logged Out Successfully")
+        })
+        .catch(error => error.message);
+    }
 
 
     return (
@@ -34,7 +45,7 @@ const Navigationbar = () => {
                          {/* ////////////// Nav item Toggle when LogIn & LogOut ////////////////////////////////////////// */}
                                  {
                                       (user?.email)  ? 
-                                           <> <Link className="m-4 fw-bold text-decoration-none text-black fs-4  navbar-item"><div  className=' fs-4'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
+                                           <> <Link className="m-4 fw-bold text-decoration-none text-black fs-4  navbar-item"><div onClick={handleLogOut} className=' fs-4'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
                                               <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
                                            </>  
                                           :  
