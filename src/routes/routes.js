@@ -9,6 +9,9 @@ import Main from "../layouts/Main/Main";
 import { Button } from "react-bootstrap";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import PrivateRoute from "./PrivateRoutes/PrivateRoute";
+import MyReviews from "../Components/Private Components/MyReviews/MyReviews";
+import AddDestination from "../Components/Private Components/AddDestination/AddDestination";
 
 export const router = createBrowserRouter([
     {
@@ -33,7 +36,19 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/register', element:<Register></Register>
-            }
+            },
+            {
+                path:'/myreviews',
+                element: <PrivateRoute>
+                      <MyReviews></MyReviews>
+                </PrivateRoute>
+            },
+            {
+                path:'/add-destination',
+                element: <PrivateRoute>
+                      <AddDestination></AddDestination>
+                </PrivateRoute>
+            },
         ]
     },
     {

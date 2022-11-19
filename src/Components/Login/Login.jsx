@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Animation/login.json";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import "./Login.css";
 import { AuthContext } from "../../Context/auth.context";
@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 const Login = () => {
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const { logIn }  = useContext(AuthContext);
 
@@ -34,7 +36,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500
       })
-      navigate('/destinations')
+      navigate(from, {replace:true});
     })
     .catch(error => error.message);
 

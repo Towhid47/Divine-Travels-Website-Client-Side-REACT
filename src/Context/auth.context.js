@@ -18,7 +18,7 @@ const AuthProvider = ({children}) => {
 
     ///// LogIn user ////////////////////////////////// 
     const logIn = (email,password) =>{
-
+         setLoading(true);
         return signInWithEmailAndPassword(auth,email,password);
     }
 
@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
      //// Register By using Email & Password (register function is called in Register.jsx)
 
      const register = (email, password) =>{
-
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email , password)
      }
 
@@ -41,6 +41,7 @@ const AuthProvider = ({children}) => {
 
    ///////// Log Out ///////////////////////
    const log_out = () =>{
+        setLoading(true);
         return signOut(auth);
    } 
 
