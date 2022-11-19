@@ -7,15 +7,14 @@ import google from "../../assets/custom icons/google.png";
 import "./Login.css";
 import { AuthContext } from "../../Context/auth.context";
 import Swal from "sweetalert2";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
-  const { logIn }  = useContext(AuthContext);
-
+  const { logIn, googleSignIn } = useContext(AuthContext);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -26,20 +25,38 @@ const Login = () => {
     e.target.reset();
 
     ////// Calling logIn function which is declared in auth.context.js to perform Sign In Authentication
-    logIn(email,password)
-    .then(result =>{
-      
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Log In Complete',
-        showConfirmButton: false,
-        timer: 1500
+    logIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log In Complete",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, { replace: true });
       })
-      navigate(from, {replace:true});
-    })
-    .catch(error => error.message);
+      .catch((error) => error.message);
+  };
 
+  //////////////////////////////////////////////////
+  //        Handle Google Sign In
+  /////////////////////////////////////////////////
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Google Sign In Complete",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => error.message);
   };
 
   return (
@@ -88,7 +105,7 @@ const Login = () => {
 
             <div className="my-4 text-center">
               <p className="fw-semibold">----Signin with social Accounts----</p>
-              <Button className="btn btn-light" title="SignIn with Google">
+              <Button onClick={handleGoogleSignIn} className="btn btn-light" title="SignIn with Google">
                 <img src={google} className="" alt="" />
               </Button>{" "}
               {"  "}
@@ -97,7 +114,10 @@ const Login = () => {
             <p className="my-2 fw-semibold">
               Are you New Here ?{" "}
               <span>
-                <Link to="../register" className="text-decoration-none fw-bold"> Create A new Account </Link>
+                <Link to="../register" className="text-decoration-none fw-bold">
+                  {" "}
+                  Create A new Account{" "}
+                </Link>
               </span>
             </p>
           </Form>

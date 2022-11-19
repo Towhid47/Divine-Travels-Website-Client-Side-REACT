@@ -13,7 +13,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-    const {googleSignIn, register } = useContext(AuthContext);
+    const {googleSignIn, register, userProfileUpdate } = useContext(AuthContext);
 
 
     
@@ -31,11 +31,12 @@ const Register = () => {
         const password = e.target.password.value;
         const photoURL = e.target.photoURL.value;
 
-        e.target.reset();
+        
 
       /////// Calling register function which is declared in auth.context.js to perform Sign Up Authentication (create a new user)
         register(email,password)
         .then( result =>{
+          handleUserProfile(name,photoURL)
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -43,13 +44,24 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          e.target.reset();
           navigate('/login')
         } )
         .catch(error => error.message)
-
-
-
     }
+
+
+    ////////// Handle user Profile for updating Name & Profile picture
+
+    const handleUserProfile = (name, photoURL) =>{
+      const profile = {
+          displayName : name ,
+          photoURL: photoURL
+      }
+      userProfileUpdate(profile)
+      .then(()=>{})
+      .catch(error => error.message);
+    } 
 
 
     

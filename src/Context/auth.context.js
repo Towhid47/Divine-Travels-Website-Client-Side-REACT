@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebase.init';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 
 export  const AuthContext = createContext();
 
@@ -29,6 +29,12 @@ const AuthProvider = ({children}) => {
      const register = (email, password) =>{
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email , password)
+     }
+
+
+   ////// Update user profile ( get Name and Photo Url from the Registration Form and use them to Display User Profile Picture  )  
+     const userProfileUpdate = (profile) =>{
+        return updateProfile(auth.currentUser,profile);
      }
 
   
@@ -74,7 +80,9 @@ const AuthProvider = ({children}) => {
           setUser,
           log_out,
           register,
-          logIn
+          logIn,
+          userProfileUpdate,
+          
 
 
     }

@@ -47,7 +47,7 @@ const Navigationbar = () => {
                                  {
                                       (user?.email)  ? 
                                            <> <Link className="m-4 fw-bold text-decoration-none text-black fs-4  navbar-item"><div onClick={handleLogOut} className=' fs-4'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
-                                              <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
+                                              <Link to="" title={user.displayName}><img className='w-50 rounded-circle' src={user.photoURL} alt=""></img></Link>  
                                            </>  
                                           :  
                                             <>   <NavLink className="m-4 fw-bold text-black text-decoration-none fs-4 navbar-item" to="/login">Login</NavLink>
