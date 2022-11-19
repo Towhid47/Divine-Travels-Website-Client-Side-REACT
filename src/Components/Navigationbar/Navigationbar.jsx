@@ -49,7 +49,7 @@ const Navigationbar = () => {
                                               <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
                                            </>  
                                           :  
-                                       <><NavLink className="m-4 fw-bold text-light nav-item" to="/login">Login</NavLink></>
+                                       <><NavLink className="m-4 fw-bold text-black text-decoration-none fs-4 navbar-item" to="/login">Login</NavLink></>
                                  }           
 
                                 </Nav>

@@ -6,13 +6,15 @@ import { Link } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import './Register.css';
 import { AuthContext } from "../../Context/auth.context";
-import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
 
-    const {googleSignIn} = useContext(AuthContext);
+    const {googleSignIn, register } = useContext(AuthContext);
 
+
+    
 
 
 
@@ -20,16 +22,42 @@ const Register = () => {
   ///       Handle Name, Email , Password
   ////////////////////////////////////////////////
   
-  const handleRegister = (e) =>{
+  const handleRegisterSubmit = (e) =>{
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const photoURL = e.target.photoURL.value;
 
-        console.log(name,email,password,photoURL);
         e.target.reset();
+
+      /////// Calling register function which is declared in auth.context.js to perform Sign Up Authentication (create a new user)
+        register(email,password)
+        .then( result =>{
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registration Successful',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        } )
+        .catch(error => error.message)
+
+
+
     }
+
+
+    
+     
+
+       
+
+
+
+
+
 
 
 
@@ -67,7 +95,7 @@ const Register = () => {
         <div>
             <h1 className="text-center">Create A New Account</h1>
         </div>
-        <Form onSubmit={handleRegister} className="mt-4 form-style">
+        <Form onSubmit={handleRegisterSubmit} className="mt-4 form-style">
           <Form.Group className="mb-3" controlId="">
             <Form.Label className="fw-semibold fs-3">
               Enter Your Name

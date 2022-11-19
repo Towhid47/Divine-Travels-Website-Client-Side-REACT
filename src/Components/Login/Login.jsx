@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Animation/login.json";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import "./Login.css";
+import { AuthContext } from "../../Context/auth.context";
+import Swal from "sweetalert2";
 
 const Login = () => {
+
+  const { logIn }  = useContext(AuthContext);
+
+
   const handleSignIn = (e) => {
     e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    e.target.reset();
+
+    ////// Calling logIn function which is declared in auth.context.js to perform Sign In Authentication
+    logIn(email,password)
+    .then(result =>{
+      
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Log In Complete',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
+    .catch(error => error.message);
+
   };
 
   return (

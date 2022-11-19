@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebase.init';
-import {getAuth, onAuthStateChanged, signInWithPopup, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
 
 export  const AuthContext = createContext();
 
@@ -15,6 +15,21 @@ const AuthProvider = ({children}) => {
 
     const [loading, setLoading] = useState(true);
 
+
+    ///// LogIn user ////////////////////////////////// 
+    const logIn = (email,password) =>{
+
+        return signInWithEmailAndPassword(auth,email,password);
+    }
+
+
+
+     //// Register By using Email & Password (register function is called in Register.jsx)
+
+     const register = (email, password) =>{
+
+        return createUserWithEmailAndPassword(auth, email , password)
+     }
 
   
   /////////// Google Sign In //////////////////////
@@ -56,7 +71,9 @@ const AuthProvider = ({children}) => {
           loading,
           user,
           setUser,
-          log_out
+          log_out,
+          register,
+          logIn
 
 
     }
