@@ -41,6 +41,7 @@ const Navigationbar = () => {
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/destinations">Destinations</NavLink>
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/services">Services</NavLink>
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/blog">Blog</NavLink>
+                                   
 
                          {/* ////////////// Nav item Toggle when LogIn & LogOut ////////////////////////////////////////// */}
                                  {
@@ -49,7 +50,10 @@ const Navigationbar = () => {
                                               <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
                                            </>  
                                           :  
-                                       <><NavLink className="m-4 fw-bold text-black text-decoration-none fs-4 navbar-item" to="/login">Login</NavLink></>
+                                            <>   <NavLink className="m-4 fw-bold text-black text-decoration-none fs-4 navbar-item" to="/login">Login</NavLink>
+                                                 <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/register">Register</NavLink>
+                                            </>
+
                                  }           
 
                                 </Nav>

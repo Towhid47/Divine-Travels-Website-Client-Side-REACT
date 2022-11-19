@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/Animation/registration.json";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import './Register.css';
 import { AuthContext } from "../../Context/auth.context";
@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
+
+  const navigate = useNavigate();
 
     const {googleSignIn, register } = useContext(AuthContext);
 
@@ -41,6 +43,7 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          navigate('/login')
         } )
         .catch(error => error.message)
 

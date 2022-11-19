@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Animation/login.json";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import "./Login.css";
 import { AuthContext } from "../../Context/auth.context";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
+  const navigate = useNavigate();
 
   const { logIn }  = useContext(AuthContext);
 
@@ -32,6 +34,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500
       })
+      navigate('/destinations')
     })
     .catch(error => error.message);
 
