@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navigationbar.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/Logo/logo.png'
+import { AuthContext } from '../../Context/auth.context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navigationbar = () => {
+
+    const {user} = useContext(AuthContext);
+    console.log(user);
+
+
     return (
         <div>
             <div>
@@ -22,6 +30,17 @@ const Navigationbar = () => {
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/destinations">Destinations</NavLink>
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/services">Services</NavLink>
                                     <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/blog">Blog</NavLink>
+
+                         {/* ////////////// Nav item Toggle when LogIn & LogOut ////////////////////////////////////////// */}
+                                 {
+                                      (user?.email)  ? 
+                                           <> <Link className="m-4 fw-bold text-decoration-none text-black fs-4  navbar-item"><div  className=' fs-4'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
+                                              <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
+                                           </>  
+                                          :  
+                                       <><NavLink className="m-4 fw-bold text-light nav-item" to="/login">Login</NavLink></>
+                                 }           
+
                                 </Nav>
 
                                 </Navbar.Collapse>

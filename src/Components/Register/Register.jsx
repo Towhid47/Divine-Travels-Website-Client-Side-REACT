@@ -1,18 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/Animation/registration.json";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import google from "../../assets/custom icons/google.png";
 import './Register.css';
+import { AuthContext } from "../../Context/auth.context";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
 
-    const handleRegister = (e) =>{
+    const {googleSignIn} = useContext(AuthContext);
+
+
+
+
+  /////////////////////////////////////////////////
+  ///       Handle Name, Email , Password
+  ////////////////////////////////////////////////
+  
+  const handleRegister = (e) =>{
         e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const photoURL = e.target.photoURL.value;
+
+        console.log(name,email,password,photoURL);
+        e.target.reset();
     }
 
 
+
+    //////////////////////////////////////////////////
+    //        Handle Google Sign In 
+    /////////////////////////////////////////////////
+     
+    const googleProvider = new GoogleAuthProvider();
+
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+       })
+       .catch(error => error.message);
+    }
 
 
 
@@ -34,6 +68,7 @@ const Register = () => {
             </Form.Label>
             <Form.Control
               type="text"
+              name="name"
               placeholder="Full Name"
               className="border border-dark border-2"
               required
@@ -45,6 +80,7 @@ const Register = () => {
             <Form.Label className="fw-semibold fs-3">Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
               className="border border-dark border-2"
               required
@@ -57,6 +93,7 @@ const Register = () => {
             <Form.Label className="fw-semibold fs-3">Profile Picture URL (optional)</Form.Label>
             <Form.Control
               type="text"
+              name="photoURL"
               placeholder="Profile Picture Link"
               className="border border-dark border-2"
             />
@@ -67,29 +104,29 @@ const Register = () => {
             <Form.Label className="fw-semibold fs-3">Password</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Enter Strong Password"
+              name="password"
+              placeholder="Enter Password"
               className="border border-dark border-2"
               required
             />
           </Form.Group>
-
-          <p className="my-2 fw-semibold">
-            Already Have an Account ?{" "}
-            <span>
-              <Link to="../login"> LOG IN </Link>
-            </span>
-          </p>
 
           <input type="submit" className="btn text-light w-100 button-color" value="Sign Up">
           </input>
 
           <div className="my-4 text-center">
             <p className="fw-semibold">----Signup with social Accounts----</p>
-            <Button className="btn btn-light" title="Signup with Google">
+            <Button onClick={handleGoogleSignIn} className="btn btn-light" title="Signup with Google">
               <img src={google} className="" alt="" />
             </Button>{" "}
             {"  "}
           </div>
+          <p className="my-2 fw-semibold">
+            Already Have an Account ?{" "}
+            <span>
+              <Link to="../login" className="text-decoration-none fw-bold"> LOG IN </Link>
+            </span>
+          </p>
         </Form>
       </div>
     </div>

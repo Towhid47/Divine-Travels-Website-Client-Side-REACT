@@ -10,7 +10,7 @@ const Banner = () => {
         <div className='container'>
              <> 
             <div className='d-flex flex-column flex-lg-row align-items-lg-center'>
-                <header className='m-5 '>
+                <header className='m-5 text-start'>
                     <h1 className='fs-1'>Travel <span className='text-success'>More!</span></h1>
                     <h3>Add Stop overs , Pay less & Discover the World </h3>
                     <p>Explore the destination according to your dream. Choose many amazing places around the world. Start exploring today.</p>

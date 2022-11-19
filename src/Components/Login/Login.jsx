@@ -7,14 +7,9 @@ import google from "../../assets/custom icons/google.png";
 import "./Login.css";
 
 const Login = () => {
-
-    const handleSignIn = (e) =>{
-        e.preventDefault();
-    }
-
-
-
-
+  const handleSignIn = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>
@@ -29,7 +24,6 @@ const Login = () => {
             <h1 className="text-center">Log In</h1>
           </div>
           <Form onSubmit={handleSignIn} className="mt-4 form-style">
-
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label className="fw-semibold fs-3">
                 Email address
@@ -38,6 +32,7 @@ const Login = () => {
                 type="email"
                 placeholder="Enter email"
                 className="border border-dark border-2"
+                name="email"
                 required
               />
               <Form.Text className="text-danger"></Form.Text>
@@ -47,21 +42,18 @@ const Login = () => {
               <Form.Label className="fw-semibold fs-3">Password</Form.Label>
               <Form.Control
                 type="password"
+                name="password"
                 placeholder="Enter Password"
                 className="border border-dark border-2"
                 required
               />
             </Form.Group>
 
-            <p className="my-2 fw-semibold">
-              Don't Have an Account ?{" "}
-              <span>
-                <Link to="../register"> Create A new Account </Link>
-              </span>
-            </p>
-
-            <input type="submit" className="w-100 btn text-light button-color" value="Sign In">
-            </input>
+            <input
+              type="submit"
+              className="w-100 btn text-light button-color"
+              value="Sign In"
+            ></input>
 
             <div className="my-4 text-center">
               <p className="fw-semibold">----Signin with social Accounts----</p>
@@ -70,6 +62,13 @@ const Login = () => {
               </Button>{" "}
               {"  "}
             </div>
+
+            <p className="my-2 fw-semibold">
+              Are you New Here ?{" "}
+              <span>
+                <Link to="../register" className="text-decoration-none fw-bold"> Create A new Account </Link>
+              </span>
+            </p>
           </Form>
         </div>
       </div>
