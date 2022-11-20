@@ -37,21 +37,23 @@ const Navigationbar = () => {
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="ms-auto">
-                                    <NavLink className={`m-4 fw-bold fs-4  navbar-item  ${({ isActive }) => isActive ? "active": undefined}`} to="/">Home</NavLink>
-                                    <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/destinations">Destinations</NavLink>
-                                    <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/services">Services</NavLink>
-                                    <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/blog">Blog</NavLink>
+                                    <NavLink className={`m-2 fw-bold fs-5  navbar-item  ${({ isActive }) => isActive ? "active": undefined}`} to="/">Home</NavLink>
+                                    <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/destinations">Destinations</NavLink>
+                                    <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/services">Services</NavLink>
+                                    <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/blog">Blog</NavLink>
                                    
 
                          {/* ////////////// Nav item Toggle when LogIn & LogOut ////////////////////////////////////////// */}
                                  {
                                       (user?.email)  ? 
-                                           <> <Link className="m-4 fw-bold text-decoration-none text-black fs-4  navbar-item"><div onClick={handleLogOut} className=' fs-4'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
-                                              <Link to="" title={user.displayName}><img className='w-50 rounded-circle' src={user.photoURL} alt=""></img></Link>  
+                                           <> <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/myreviews">My Reviews</NavLink>
+                                              <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/add-destination">Add Destination</NavLink>
+                                              <Link className="m-2 fw-bold text-decoration-none text-black fs-5  navbar-item"><div onClick={handleLogOut} className=' fs-5'>Logout <FontAwesomeIcon icon={faArrowRightFromBracket} /></div></Link>                                              
+                                              <Link to="" title={user.displayName}><img className='w-75 rounded-circle' src={user.photoURL} alt=""></img></Link>  
                                            </>  
                                           :  
-                                            <>   <NavLink className="m-4 fw-bold text-black text-decoration-none fs-4 navbar-item" to="/login">Login</NavLink>
-                                                 <NavLink className="m-4 fw-bold fs-4 navbar-item" to="/register">Register</NavLink>
+                                            <>   <NavLink className="m-2 fw-bold text-black text-decoration-none fs-5 navbar-item" to="/login">Login</NavLink>
+                                                 <NavLink className="m-2 fw-bold fs-5 navbar-item" to="/register">Register</NavLink>
                                             </>
 
                                  }           
