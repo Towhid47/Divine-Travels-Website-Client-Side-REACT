@@ -30,7 +30,7 @@ const Navigationbar = () => {
     return (
         <div>
             <div>
-               <Navbar  expand="lg">
+               <Navbar expand="lg">
                             <Container>
                                 <Navbar.Brand href="/" className="" id='logo-font'><img src={logo} alt=""></img></Navbar.Brand>
                                 <Navbar.Brand href="/" className='navbar-title fs-1' id='logo-font'>Divine Travels</Navbar.Brand>

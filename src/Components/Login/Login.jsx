@@ -70,7 +70,7 @@ const Login = () => {
         {/* //////////////////////////Login Form/////////////////// */}
         <div className="w-100 w-lg-50">
           <div>
-            <h1 className="text-center">Log In</h1>
+            <h1 className="text-center fw-bold">Login</h1>
           </div>
           <Form onSubmit={handleSignIn} className="mt-4 form-style">
             <Form.Group className="mb-3" controlId="formBasicEmail">

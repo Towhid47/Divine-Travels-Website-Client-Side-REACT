@@ -55,6 +55,7 @@ const AuthProvider = ({children}) => {
 
 
 
+  ////////////////////// OnAuthStateChanged() method  defines whether user is currently Logged In or not..... 
    useEffect(()=>{
 
       const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -72,7 +73,7 @@ const AuthProvider = ({children}) => {
 
 
 
-  /////////// authData Provides All the variable Data of Authentication and Share them into many Components by using Context API //////////////// 
+  /////////// Here, authData Provides Authentication related Data Variables and Methods to Share them into many Components by using Context API (AuthContext) //////////////// 
     const authData = {
           googleSignIn,
           loading,

@@ -40,7 +40,7 @@ const Register = () => {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Registration Successful',
+            title: 'Registration Done',
             showConfirmButton: false,
             timer: 1500
           })
@@ -93,6 +93,7 @@ const Register = () => {
               showConfirmButton: false,
               timer: 1500
             })
+            navigate('/');
        })
        .catch(error => error.message);
     }
@@ -108,7 +109,7 @@ const Register = () => {
       {/* //////////////////////////Registration Form/////////////////// */}
       <div className="w-100 w-lg-50">
         <div>
-            <h1 className="text-center">Create A New Account</h1>
+            <h1 className="text-center fw-bold">Create A New Account</h1>
         </div>
         <Form onSubmit={handleRegisterSubmit} className="mt-4 form-style">
           <Form.Group className="mb-3" controlId="">
