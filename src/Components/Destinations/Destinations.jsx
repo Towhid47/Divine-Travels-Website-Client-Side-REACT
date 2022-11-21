@@ -10,7 +10,7 @@ const Destinations = () => {
 
 
     return (
-        <div className='cards-style ms-5'>
+        <div className='cards-style container'>
             {
                 destinations.map(destination=> <DestinationCard key={destination._id} destination={destination}>
 

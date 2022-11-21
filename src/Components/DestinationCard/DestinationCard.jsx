@@ -8,7 +8,7 @@ const DestinationCard = ({destination}) => {
    const {destination_title, days, details, image, price} = destination;
   return (
     <div>
-      <Card style={{ width: "30rem" , height:"100%" }}>
+      <Card style={{ width: "100%" , height:"100%" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body className="shadow p-4 bg-body rounded border-0">
           <Card.Title className="fs-2">{destination_title}</Card.Title>
