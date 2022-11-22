@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import './DestinationDetails.css';
+import "./DestinationDetails.css";
 
 const DestinationDetails = () => {
   const loadDetails = useLoaderData();
@@ -11,16 +11,14 @@ const DestinationDetails = () => {
 
   return (
     <div className="container">
-      <Card className="bg-dark card-size text-white">
-        <div className="img-gradient"><Card.Img className="w-100 " src={image} alt={destination_title} /></div>
-        <Card.ImgOverlay>
-          <div className="d-flex justify-content-center align-items-center flex-column fs-3">
-            <Card.Title className="fs-1">{destination_title}</Card.Title>
-            <Card.Text>{details}</Card.Text>
-            <Card.Text className="fw-bold text-light button-color p-2 rounded-3">Days: {days}</Card.Text>
-            <Card.Text className="fw-bold text-light button-color p-2 rounded-3">Price: {price}</Card.Text>
-          </div>
-        </Card.ImgOverlay>
+      <Card>
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title className="fs-1">{destination_title}</Card.Title>
+          <Card.Text className="fs-4">{details}</Card.Text>
+              <Card.Text className="fs-3 fw-semibold text-color">Days: {days}</Card.Text>
+              <Card.Text className="fs-3 fw-semibold text-color">Price: {price}</Card.Text>
+        </Card.Body>
       </Card>
     </div>
   );

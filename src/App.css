@@ -8,3 +8,6 @@
 .button-color:hover{
    background-color: rgb(1, 105, 105);
 }
+.text-color{
+    color:darkcyan;
+}
