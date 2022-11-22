@@ -7,7 +7,7 @@ const PopularDestinations = () => {
   const [popularDestinationCards, setPopularDestinationCards] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/destinations")
+    fetch("http://localhost:5000/popular-destinations")
       .then((res) => res.json())
       .then((data) => setPopularDestinationCards(data));
   }, []);
@@ -18,7 +18,7 @@ const PopularDestinations = () => {
     <div className="my-5 container">
       <h1 className="mb-4">Popular Destinations</h1>
       <div className="cards-style">
-        {popularDestinationCards.slice(3, 6).map((popularDestinationCard) => (
+        {popularDestinationCards.map((popularDestinationCard) => (
           <DestinationCard
             key={popularDestinationCard._id}
             destination={popularDestinationCard}
