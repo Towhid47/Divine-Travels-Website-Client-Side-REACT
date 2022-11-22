@@ -1,11 +1,12 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 import './DestinationCard';
 
 const DestinationCard = ({destination}) => {
     console.log(destination);
-   const {destination_title, days, details, image, price} = destination;
+   const {destination_title, days, details, image, price, _id} = destination;
   return (
     <div>
       <Card style={{ width: "100%" , height:"100%" }}>
@@ -23,7 +24,9 @@ const DestinationCard = ({destination}) => {
                 Days : {days}
                 </Card.Text>
           </div>
-          <Button className="button-color w-100 mt-4">Know Details</Button>
+          <Link to={`/destinations/${_id}`}>
+              <Button className="button-color w-100 mt-4">Know Details</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

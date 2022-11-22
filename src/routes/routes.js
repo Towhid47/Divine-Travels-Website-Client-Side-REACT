@@ -12,6 +12,7 @@ import Register from "../Components/Register/Register";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import MyReviews from "../Components/Private Components/MyReviews/MyReviews";
 import AddDestination from "../Components/Private Components/AddDestination/AddDestination";
+import DestinationDetails from "../Components/DestinationDetails/DestinationDetails";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,9 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/destinations', element: <Destinations></Destinations> ,  loader: () => fetch("http://localhost:5000/destinations"),
+            },
+            {
+                path:'/destinations/:id' , element: <DestinationDetails></DestinationDetails> , loader: ({params}) => fetch(`http://localhost:5000/destinations/${params.id}`) 
             },
             {
                 path:'/services' , element: <Services></Services>
