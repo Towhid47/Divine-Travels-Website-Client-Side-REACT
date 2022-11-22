@@ -1,7 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const AddDestination = () => {
+
+    const navigate = useNavigate();
 
    const handleAddDestination =(event) =>{
     event.preventDefault();
@@ -23,7 +27,15 @@ const AddDestination = () => {
     })
     .then(res => res.json())
     .then (data => {
-        console.log(data);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "New Destination Added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        event.target.reset();
+        navigate('/destinations');  
     })
    }
 
