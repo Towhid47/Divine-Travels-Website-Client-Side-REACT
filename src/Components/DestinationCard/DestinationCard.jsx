@@ -2,6 +2,7 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import './DestinationCard';
 
 const DestinationCard = ({destination}) => {
@@ -10,7 +11,11 @@ const DestinationCard = ({destination}) => {
   return (
     <div>
       <Card style={{ width: "100%" , height:"100%" }}>
-        <Card.Img variant="top" src={image} />
+       <PhotoProvider>
+             <PhotoView src={image}>
+                  <Card.Img variant="top" src={image} />
+             </PhotoView>
+       </PhotoProvider> 
         <Card.Body className="shadow p-4 bg-body rounded border-0">
           <Card.Title className="fs-2">{destination_title}</Card.Title>
           <Card.Text>
