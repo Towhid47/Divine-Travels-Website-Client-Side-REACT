@@ -7,7 +7,7 @@ const PopularDestinations = () => {
   const [popularDestinationCards, setPopularDestinationCards] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular-destinations")
+    fetch("https://divine-travels-server.vercel.app/popular-destinations")
       .then((res) => res.json())
       .then((data) => setPopularDestinationCards(data));
   }, []);
@@ -25,7 +25,11 @@ const PopularDestinations = () => {
           ></DestinationCard>
         ))}
       </div>
-      <div className="text-center my-4"><Link to="/destinations"><Button className="w-50 button-color">See All</Button></Link></div>
+      <div className="text-center my-4">
+        <Link to="/destinations">
+          <Button className="w-50 button-color">See All</Button>
+        </Link>
+      </div>
     </div>
   );
 };
