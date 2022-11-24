@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/auth.context";
 
 const ReviewsSection = () => {
@@ -10,7 +11,25 @@ const ReviewsSection = () => {
     event.preventDefault();
     const review = event.target.AddReview.value;
     const userReview = {user, review };
-    console.log(userReview);
+    
+    fetch('http://localhost:5000/reviews', {
+        method: 'POST',
+        headers : {
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(userReview)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Review Added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+         event.target.reset();
+    })
   };
 
   return (
