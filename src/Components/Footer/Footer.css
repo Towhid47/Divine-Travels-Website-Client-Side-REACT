@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital@1&display=swap');
+
+.footer-title{
+    font-family: 'Kaushan Script', cursive;
+    color: darkcyan;
+}   
+
+.footer-text{
+    font-family: 'Overlock', cursive;
+}
