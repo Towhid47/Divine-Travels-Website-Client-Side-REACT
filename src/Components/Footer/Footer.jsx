@@ -16,7 +16,7 @@ Explore the destination according to your dream. Choose many amazing places arou
                 <p>Office 41 , Shehbaz Building </p>
                 <p>Sultanate of Oman</p>
             </div>
-            <div className='d-flex justify-content-between'>
+            <div className='d-lg-flex justify-content-between'>
                   <p className='text-start fs-5'>&copy; Copyright 2022. All rights Reserved</p>  
                   <div>
                       <Link to='./destinations' className='fs-5 text-decoration-none text-color'>Destinations</Link>
