@@ -6,9 +6,9 @@ import ReviewsSection from "./ReviewsSection/ReviewsSection";
 
 const DestinationDetails = () => {
   const loadDetails = useLoaderData();
-  console.log(loadDetails);
 
-  const { destination_title, days, price, details, image } = loadDetails;
+  const { destination_title, days, price, details, image , _id  } = loadDetails;
+
 
   return (
     <div className="container">
@@ -21,9 +21,9 @@ const DestinationDetails = () => {
               <Card.Text className="fs-3 fw-semibold text-color">Price: {price}</Card.Text>
         </Card.Body>
       </Card>
-      
+
       {/* //////////////////Reviews Section /////////////////////////// */}
-      <ReviewsSection></ReviewsSection>
+      <ReviewsSection destinationId={_id}></ReviewsSection>
     </div>
   );
 };

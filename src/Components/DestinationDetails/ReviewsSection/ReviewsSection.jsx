@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/auth.context";
-
-const ReviewsSection = () => {
+import './ReviewsSection.css';
+const ReviewsSection = ({destinationId}) => {
+      
   const { user } = useContext(AuthContext);
 
   const handleAddReview = (event) => {
     event.preventDefault();
     const review = event.target.AddReview.value;
-    const userReview = {user, review };
+    const userReview = {user, review , destinationId};
     
-    fetch('http://localhost:5000/reviews', {
+    fetch(`http://localhost:5000/reviews`, {
         method: 'POST',
         headers : {
             'content-type':'application/json'
@@ -31,6 +32,17 @@ const ReviewsSection = () => {
          event.target.reset();
     })
   };
+
+
+  const [reviews,setReviews] = useState([]);
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/reviews')
+    .then(res=>res.json())
+    .then(data => setReviews(data));
+  },[]);
+
+  
 
   return (
     <div className="my-5">
@@ -70,7 +82,29 @@ const ReviewsSection = () => {
       {/*/////////////////Add Review Section End ////////////////////////////////// */}
 
       {/*///////////////// Show Reviews Section Start ////////////////////////////// */}
-      <div className="my-5"></div>
+      <div className=" container m-5"></div>
+      <div className=" m-3 border border-secondary border-1  rounded-3">
+         <div>
+              {
+                 reviews.map(review => <div className="m-5 button-color border border-secondary border-2 rounded-3 p-4">
+                    <div className="d-flex ">
+                        <div className="div-size">
+                        <img className='w-100 rounded-circle' src={review.user.photoURL} alt=""></img>
+                        </div>   
+                        <div className="div-size">
+                            <h3 className="m-2 fw-bold">{review.user.displayName}</h3>
+                            <h5 className="m-2">{review.user.email}</h5>
+                        </div>
+                    </div>
+                    <div>
+                        <p className="m-5 fs-2 text-light">{review.review}</p>
+                    </div>
+                    
+                 
+                 </div>)
+              }
+        </div> 
+      </div>
       {/*///////////////// Show Reviews Section End //////////////////////////////// */}
     </div>
   );
