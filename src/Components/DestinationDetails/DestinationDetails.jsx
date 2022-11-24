@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import "./DestinationDetails.css";
+import ReviewsSection from "./ReviewsSection/ReviewsSection";
 
 const DestinationDetails = () => {
   const loadDetails = useLoaderData();
@@ -20,6 +21,9 @@ const DestinationDetails = () => {
               <Card.Text className="fs-3 fw-semibold text-color">Price: {price}</Card.Text>
         </Card.Body>
       </Card>
+      
+      {/* //////////////////Reviews Section /////////////////////////// */}
+      <ReviewsSection></ReviewsSection>
     </div>
   );
 };
