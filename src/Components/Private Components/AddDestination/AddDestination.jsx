@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const AddDestination = () => {
+  
+  useEffect(() => {
+    document.title = 'Divine Travels : Add Destination';
+  }, []);
 
     const navigate = useNavigate();
 

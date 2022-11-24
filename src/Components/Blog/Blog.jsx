@@ -1,7 +1,10 @@
 import Accordion from "react-bootstrap/Accordion";
-import React from "react";
+import React, { useEffect } from "react";
 
 function Blog() {
+  useEffect(() => {
+    document.title = 'Divine Travels : Blog';
+  }, []);
   return (
     <div className="container">
       <Accordion defaultActiveKey="0">

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Animation/login.json";
 import { Button, Form } from "react-bootstrap";
@@ -10,6 +10,11 @@ import Swal from "sweetalert2";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+
+  useEffect(() => {
+    document.title = 'Divine Travels : Login';
+  }, []);
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";

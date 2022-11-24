@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Services.css';
 
 import booking from '../../assets/custom icons/booking.png';
@@ -10,6 +10,9 @@ import ticket from '../../assets/custom icons/ticket.png';
 
 
 const Services = () => {
+        useEffect(() => {
+                document.title = 'Divine Travels : Services';
+              }, []);
     return (
         <div className='mt-3'>
             <div className='text-center title p-5'>

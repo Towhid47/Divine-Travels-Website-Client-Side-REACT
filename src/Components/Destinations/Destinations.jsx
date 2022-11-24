@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import DestinationCard from '../DestinationCard/DestinationCard';
 import './Destinations.css';
 
 const Destinations = () => {
+
+    useEffect(() => {
+        document.title = 'Divine Travels : Destinations';
+      }, []);
 
     const destinations = useLoaderData();
     

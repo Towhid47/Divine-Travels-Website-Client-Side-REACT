@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/Animation/registration.json";
 import { Button, Form } from "react-bootstrap";
@@ -10,6 +10,11 @@ import Swal from "sweetalert2";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
+
+  
+  useEffect(() => {
+    document.title = 'Divine Travels : Register';
+  }, []);
 
   const navigate = useNavigate();
 

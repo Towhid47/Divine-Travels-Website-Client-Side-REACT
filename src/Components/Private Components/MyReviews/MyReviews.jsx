@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const MyReviews = () => {
+
+    useEffect(() => {
+        document.title = 'Divine Travels : My Reviews';
+      }, []);
 
     const loadReviews = useLoaderData();
     console.log(loadReviews);
